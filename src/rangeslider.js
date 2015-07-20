@@ -1,11 +1,13 @@
 (function(factory) {
     'use strict';
 
-    if (typeof define === 'function' && define.amd) {
+    if (typeof Package !== 'undefined') {
+        // Browser globals
+        factory(jQuery);
+    } else if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(['jquery'], factory);
-    }
-    else if (typeof exports === 'object') {
+    } else if (typeof exports === 'object') {
         // CommonJS
         factory(require('jquery'));
     } else {
